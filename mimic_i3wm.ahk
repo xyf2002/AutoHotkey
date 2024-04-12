@@ -32,5 +32,10 @@ else
 }
 return
 
+; 快速移动窗口到屏幕边缘
+#+h::WinMove, A,, 0, 0, A_ScreenWidth / 2, A_ScreenHeight  ; 移动到屏幕左半部
+#+l::WinMove, A,, A_ScreenWidth / 2, 0, A_ScreenWidth / 2, A_ScreenHeight  ; 移动到屏幕右半部
 
 
+; 重新加载AutoHotkey脚本
+#+r::Reload  
