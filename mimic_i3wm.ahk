@@ -42,6 +42,15 @@ return
 #k::Send, {Alt Down}{Shift Down}{Tab}{Shift Up}{Alt Up}  
 
 
+#XButton1::
+    ;按 Win+鼠标后退 快速后退桌面
+    Send, ^#{Left}
+Return
+
+#XButton2::
+    ;按 Win+鼠标前进 快速前进桌面
+    Send, ^#{Right}
+Return
 
 
 ; 重新加载AutoHotkey脚本
