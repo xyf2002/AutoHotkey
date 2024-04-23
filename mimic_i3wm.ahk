@@ -55,6 +55,13 @@ Return
 ;Win+M shortcut to minimize the active window
 #m::WinMinimize, A
 
+#IfWinActive ahk_exe msedge.exe
+
+    ^p::Send, ^+{Tab}  ; Ctrl+P 映射到 Ctrl+Shift+Tab，切换到上一个标签
+    ^n::Send, ^{Tab}   ; Ctrl+N 映射到 Ctrl+Tab，切换到下一个标签
+
+#IfWinActive  ; 重置条件，以便快捷键仅在指定窗口生效
+
 
 ; 重新加载AutoHotkey脚本
 #+r::Reload  
