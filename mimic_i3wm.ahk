@@ -52,6 +52,9 @@ Return
     Send, ^#{Right}
 Return
 
+;Win+M shortcut to minimize the active window
+#m::WinMinimize, A
+
 
 ; 重新加载AutoHotkey脚本
 #+r::Reload  
