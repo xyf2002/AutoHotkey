@@ -53,15 +53,32 @@ Return
 Return
 
 ;Win+M shortcut to minimize the active window
+global minimized := {}  ; 用于存储窗口是否被最小化的状态
+
+
+;win+M 
 #m::WinMinimize, A
 
-#IfWinActive ahk_exe msedge.exe
 
-    ^p::Send, ^+{Tab}  ; Ctrl+P 映射到 Ctrl+Shift+Tab，切换到上一个标签
-    ^n::Send, ^{Tab}   ; Ctrl+N 映射到 Ctrl+Tab，切换到下一个标签
 
-#IfWinActive  ; 重置条件，以便快捷键仅在指定窗口生效
 
+; 如果当前窗口是 Windows Terminal
+#IfWinActive ahk_class CASCADIA_HOSTING_WINDOW_CLASS
+
+; 将 Win+V 映射为 Alt+V
+#v::Send !v
+
+; 将 Win+H 映射为 Alt+H
+#h::Send !h
+
+; 将 Win+Q 映射为 Ctrl+D
+#q::Send ^d
+
+; 将 Win+Enter 映射为 Alt+V
+#Enter::Send !v
+
+; 结束 IfWinActive 块
+#IfWinActive
 
 ; 重新加载AutoHotkey脚本
 #+r::Reload  
