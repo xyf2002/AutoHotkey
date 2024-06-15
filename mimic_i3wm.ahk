@@ -62,6 +62,25 @@ global minimized := {}  ; 用于存储窗口是否被最小化的状态
 
 
 
+; 使用 Win+N 快捷键切换到 Windows Terminal 窗口
+#n::
+    ; 检查窗口类名为 'CASCADIA_HOSTING_WINDOW_CLASS' 的窗口是否存在
+    IfWinExist, ahk_class CASCADIA_HOSTING_WINDOW_CLASS
+    {
+        ; 激活该窗口
+        WinActivate
+    }
+    else
+    {
+        ; 显示一个消息框提示用户没有找到 Windows Terminal 窗口
+        MsgBox Windows Terminal 窗口不存在
+    }
+    return
+
+
+
+
+
 ; 如果当前窗口是 Windows Terminal
 #IfWinActive ahk_class CASCADIA_HOSTING_WINDOW_CLASS
 
@@ -77,8 +96,17 @@ global minimized := {}  ; 用于存储窗口是否被最小化的状态
 ; 将 Win+Enter 映射为 Alt+V
 #Enter::Send !v
 
+
+
+; 将 Win+左箭头 映射为 Alt+左箭头
+#Left::Send !{Left}
+
+; 将 Win+右箭头 映射为 Alt+右箭头
+#Right::Send !{Right}
+
 ; 结束 IfWinActive 块
 #IfWinActive
 
-; 重新加载AutoHotkey脚本
+; 重新加载AutoHotkey脚本win+shift+r
 #+r::Reload  
+
