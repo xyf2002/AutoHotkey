@@ -78,6 +78,20 @@ global minimized := {}  ; 用于存储窗口是否被最小化的状态
     return
 
 
+; 使用 Win+C 快捷键切换到 ChatGPT 窗口
+#c::
+    ; 检查窗口类名为 'Window Class' 的窗口是否存在
+    IfWinExist, ahk_class Window Class
+    {
+        ; 激活该窗口
+        WinActivate
+    }
+    else
+    {
+        ; 显示一个消息框提示用户没有找到 ChatGPT 窗口
+        MsgBox ChatGPT 窗口不存在
+    }
+    return
 
 
 
